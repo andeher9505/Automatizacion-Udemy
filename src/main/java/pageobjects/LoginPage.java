@@ -7,11 +7,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 @Getter
 public class LoginPage  {
 
 
+    @Autowired
     public LoginPage (WebDriver driver){
         PageFactory.initElements(driver, this);
     }

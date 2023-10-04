@@ -2,16 +2,19 @@ package pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LoginServices {
 
+    @Autowired
+    private LoginPage loginPage;
     private WebDriver driver;
 
-    private LoginPage loginPage;
-
+    @Autowired
     public LoginServices(WebDriver driver) {
-        this.driver = driver;
-        loginPage = new LoginPage(driver);
+        this.driver=driver;
     }
 
     public void abrirNavegador (String url) {
