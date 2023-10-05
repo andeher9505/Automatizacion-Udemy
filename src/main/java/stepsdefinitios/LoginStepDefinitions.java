@@ -5,6 +5,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import pageobjects.LoginServices;
 
@@ -13,10 +14,14 @@ public class LoginStepDefinitions {
 
     @Autowired
     private LoginServices loginServices;
+
+    @Value("${url}")
+    private String url;
+
     @Given("^El usuario quiere tener una cuenta$")
     public void el_usuario_quiere_tener_una_cuenta() throws InterruptedException {
 
-        loginServices.abrirNavegador("https://demo.automationtesting.in/Register.html");
+        loginServices.abrirNavegador(url);
         Thread.sleep(5000);
         loginServices.escribirApellido("Andres");
         loginServices.escribirNombre("Herrera");
